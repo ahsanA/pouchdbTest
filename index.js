@@ -98,6 +98,42 @@ $('#btnAddProduct').on('click',function(event){
 	});
 });
 
+function EditProduct(obj){
+	var id = obj.dataset.id;
+	db.get(id).then(function (doc) {
+		$('#editProductModal #productKey').val(doc._id);
+		$('#editProductModal #editProId').val(doc.proId);
+		$('#editProductModal #editProName').val(doc.name);
+		$('#editProductModal #editUnitePrice').val(doc.unitePrice);
+		$('#editProductModal #editProductCatId').val(doc.catId);
+		$('#editProductModal').modal('show');
+	});
+}
+
+$('#btnEditProduct').on('click',function(event){
+	event.preventDefault();
+	db.get($('#editProductModal #productKey').val()).then(function (doc) {
+	  // update his age
+	  doc.name = $('#editProductModal #editProName').val();
+	  doc.unitePrice = $('#editProductModal #editUnitePrice').val();
+	  doc.proId = $('#editProductModal #editProId').val();
+	  doc.catId = $('#editProductModal #editProductCatId').val();
+	  // put him back
+	  return db.put(doc);
+	}).then(function () {	  
+		window.location.reload();
+	});
+});
+
+function DeleteProduct(obj){
+	var id = obj.dataset.id;
+	db.get(id).then(function (doc) {
+		 return db.remove(doc);
+	}).then(function () {	  
+		window.location.reload();
+	});
+}
+
 $('#navProduct').on('click',function(){
 	$('.category').hide();
 	$('.product').show();

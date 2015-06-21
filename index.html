@@ -1,218 +1,218 @@
 <html>
-	<head>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<link rel="stylesheet" href="http://getbootstrap.com/examples/justified-nav/justified-nav.css">		
-		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>	
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>	
-	</head>
-	<body>
-	<div class="container">
-		<div class="masthead">
-			<h3 class="text-muted">Ahsan's Tea Shop</h3><br/>
-			<nav>
-			  <ul class="nav nav-justified">
-				<li id="navCategory" class="active"><a href="javascript:void(0)">Category</a></li>
-				<li id="navProduct" ><a href="javascript:void(0)">Products</a></li>
-			  </ul>
-			</nav>
-		</div>
-		<div class="row category" style="margin-top:25px; display:block;">
-			<div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">Categories</h3>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/examples/justified-nav/justified-nav.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="masthead">
+            <h3 class="text-muted">Ahsan's Tea Shop</h3><br />
+            <nav>
+                <ul class="nav nav-justified">
+                    <li id="navCategory" class="active"><a href="javascript:void(0)">Category</a></li>
+                    <li id="navProduct"><a href="javascript:void(0)">Products</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="row category" style="margin-top:25px; display:block;">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Categories</h3>
+                </div>
+                <div class="panel-body">
+                    <div style="padding-left:10px;">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCategoryModal">Add New Category</button>
+                    </div>
+                    <br />
+                    <div class="table-responsive">
+                        <table class="table" id="tblCategory">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Category Code</th>
+                                    <th>Category Name</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-            <div class="panel-body">
-              <div style="padding-left:10px;">
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCategoryModal">Add New Category</button>	
-			  </div>
-			  <br/>
-			  <div class="table-responsive">
-				  <table class="table" id="tblCategory">
-					<thead>
-						<tr>
-						  <th>#</th>
-						  <th>Category Code</th>
-						  <th>Category Name</th>
-						  <th>Actions</th>
-						</tr>
-					</thead>
-					<tbody>
-						
-					</tbody>
-				  </table>
-			   </div>
+        </div>
+        <div class="row product" style="margin-top:25px; display:none;">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Products</h3>
+                </div>
+                <div class="panel-body">
+                    <div style="padding-left:10px;">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProductModal">Add New Product</button>
+                    </div>
+                    <br />
+                    <div class="table-responsive">
+                        <table class="table" id="tblProduct">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Product Code</th>
+                                    <th>Product Name</th>
+                                    <th>Unit Price</th>
+                                    <th>Category</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-          </div>				
-		</div>
-		<div class="row product" style="margin-top:25px; display:none;">
-			<div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">Products</h3>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">New Category</h3>
+                            <button style="margin-top: -19px;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="panel-body">
+                            <div class="addCategory">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="catName">Category Name</label>
+                                        <input type="text" class="form-control" id="catName" placeholder="Category Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="catId">Category ID</label>
+                                        <input type="text" class="form-control" id="catId" placeholder="Category ID">
+                                    </div>
+                                    <a href="javascript:void(0)" class="btn btn-primary" id="btnAddCategory">Add Category</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="panel-body">
-              <div style="padding-left:10px;">
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProductModal">Add New Product</button>	
-			  </div>
-			  <br/>
-			  <div class="table-responsive">
-				  <table class="table" id="tblProduct">
-					<thead>
-						<tr>
-						  <th>#</th>
-						  <th>Product Code</th>
-						  <th>Product Name</th>
-						  <th>Unit Price</th>
-						  <th>Category</th>
-						  <th>Actions</th>
-						</tr>
-					</thead>
-					<tbody>
-						
-					</tbody>
-				  </table>
-			   </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editCategoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Edit Category</h3>
+                            <button style="margin-top: -19px;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="panel-body">
+                            <div class="addCategory">
+                                <form>
+                                    <input type="hidden" class="form-control" id="editCatkey" placeholder="Category Name">
+                                    <div class="form-group">
+                                        <label for="catName">Category Name</label>
+                                        <input type="text" class="form-control" id="editCatName" placeholder="Category Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="catId">Category ID</label>
+                                        <input type="text" class="form-control" id="editCatId" placeholder="Category ID">
+                                    </div>
+                                    <a href="javascript:void(0)" class="btn btn-primary" id="btnEditCategory">Edit Category</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>				
-		</div>
-	</div>
-	
-	<div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	  <div class="modal-dialog" role="document">
-		<div class="modal-content">			  
-		  <div class="modal-body">
-			<div class="panel panel-primary">
-			  <div class="panel-heading">
-				<h3 class="panel-title">New Category</h3>
-				<button style="margin-top: -19px;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			  </div>
-			  <div class="panel-body">
-				<div class="addCategory">
-					<form>
-					  <div class="form-group">
-						<label for="catName">Category Name</label>
-						<input type="text" class="form-control" id="catName" placeholder="Category Name">
-					  </div>
-					  <div class="form-group">
-						<label for="catId">Category ID</label>
-						<input type="text" class="form-control" id="catId" placeholder="Category ID">
-					  </div>			  
-					  <a href="javascript:void(0)" class="btn btn-primary" id="btnAddCategory">Add Category</a>
-					</form>
-				</div>
-			  </div>
-			</div>
-		  </div>
-		</div>
-	  </div>
-	</div>
-	<div class="modal fade" id="editCategoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	  <div class="modal-dialog" role="document">
-		<div class="modal-content">			  
-		  <div class="modal-body">
-			<div class="panel panel-primary">
-			  <div class="panel-heading">
-				<h3 class="panel-title">Edit Category</h3>
-				<button style="margin-top: -19px;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			  </div>
-			  <div class="panel-body">
-				<div class="addCategory">
-					<form>
-						<input type="hidden" class="form-control" id="editCatkey" placeholder="Category Name">
-					  <div class="form-group">
-						<label for="catName">Category Name</label>
-						<input type="text" class="form-control" id="editCatName" placeholder="Category Name">
-					  </div>
-					  <div class="form-group">
-						<label for="catId">Category ID</label>
-						<input type="text" class="form-control" id="editCatId" placeholder="Category ID">
-					  </div>			  
-					  <a href="javascript:void(0)" class="btn btn-primary" id="btnEditCategory">Edit Category</a>
-					</form>
-				</div>
-			  </div>
-			</div>
-		  </div>
-		</div>
-	  </div>
-	</div>
-	
-	<div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	  <div class="modal-dialog" role="document">
-		<div class="modal-content">			  
-		  <div class="modal-body">
-			<div class="panel panel-primary">
-			  <div class="panel-heading">
-				<h3 class="panel-title">New Product</h3>
-				<button style="margin-top: -19px;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			  </div>
-			  <div class="panel-body">
-				<div class="addCategory">
-					<form>	
-					  <div class="form-group">
-						<label for="proId">Product ID</label>
-						<input type="text" class="form-control" id="proId" placeholder="Product ID">
-					  </div>						
-					  <div class="form-group">
-						<label for="proName">Product Name</label>
-						<input type="text" class="form-control" id="proName" placeholder="Product Name">
-					  </div>
-					  <div class="form-group">
-						<label for="unitePrice">Unit Price</label>
-						<input type="text" class="form-control" id="unitePrice" placeholder="Unite Price">
-					  </div>
-					  <div class="form-group">
-						<label for="productCatId">Category</label>
-						<input type="text" class="form-control" id="productCatId" placeholder="Category ID">
-					  </div>			  
-					  <a href="javascript:void(0)" class="btn btn-primary" id="btnAddProduct">Add Product</a>
-					</form>
-				</div>
-			  </div>
-			</div>
-		  </div>
-		</div>
-	  </div>
-	</div>
-	<div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	  <div class="modal-dialog" role="document">
-		<div class="modal-content">			  
-		  <div class="modal-body">
-			<div class="panel panel-primary">
-			  <div class="panel-heading">
-				<h3 class="panel-title">Edit Product</h3>
-				<button style="margin-top: -19px;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			  </div>
-			  <div class="panel-body">
-				<div class="addCategory">
-					<form>	
-					<input type="hidden" class="form-control" id="productKey">
-					  <div class="form-group">
-						<label for="proId">Product ID</label>
-						<input type="text" class="form-control" id="editProId" placeholder="Product ID">
-					  </div>						
-					  <div class="form-group">
-						<label for="proName">Product Name</label>
-						<input type="text" class="form-control" id="editProName" placeholder="Product Name">
-					  </div>
-					  <div class="form-group">
-						<label for="unitePrice">Unit Price</label>
-						<input type="text" class="form-control" id="editUnitePrice" placeholder="Unite Price">
-					  </div>
-					  <div class="form-group">
-						<label for="productCatId">Category</label>
-						<input type="text" class="form-control" id="editProductCatId" placeholder="Category ID">
-					  </div>			  
-					  <a href="javascript:void(0)" class="btn btn-primary" id="btnEditProduct">Edit Product</a>
-					</form>
-				</div>
-			  </div>
-			</div>
-		  </div>
-		</div>
-	  </div>
-	</div>
-		
-	<script src="https://cdn.jsdelivr.net/pouchdb/latest/pouchdb.min.js"></script>
-	<script src="index.js"></script>
-	</body>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">New Product</h3>
+                            <button style="margin-top: -19px;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="panel-body">
+                            <div class="addCategory">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="proId">Product ID</label>
+                                        <input type="text" class="form-control" id="proId" placeholder="Product ID">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="proName">Product Name</label>
+                                        <input type="text" class="form-control" id="proName" placeholder="Product Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="unitePrice">Unit Price</label>
+                                        <input type="text" class="form-control" id="unitePrice" placeholder="Unite Price">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="productCatId">Category</label>
+                                        <select id="productCatId" class="form-control">
+                                            <option value="---">Select One</option>
+                                        </select>
+                                    </div>
+                                    <a href="javascript:void(0)" class="btn btn-primary" id="btnAddProduct">Add Product</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Edit Product</h3>
+                            <button style="margin-top: -19px;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="panel-body">
+                            <div class="addCategory">
+                                <form>
+                                    <input type="hidden" class="form-control" id="productKey">
+                                    <div class="form-group">
+                                        <label for="proId">Product ID</label>
+                                        <input type="text" class="form-control" id="editProId" placeholder="Product ID">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="proName">Product Name</label>
+                                        <input type="text" class="form-control" id="editProName" placeholder="Product Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="unitePrice">Unit Price</label>
+                                        <input type="text" class="form-control" id="editUnitePrice" placeholder="Unite Price">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editProductCatId">Category</label>
+                                        <select id="editProductCatId" class="form-control">
+                                            <option value="---">Select One</option>
+                                        </select>
+                                    </div>
+                                    <a href="javascript:void(0)" class="btn btn-primary" id="btnEditProduct">Edit Product</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/pouchdb/latest/pouchdb.min.js"></script>
+    <script src="index.js"></script>
+</body>
 </html>
